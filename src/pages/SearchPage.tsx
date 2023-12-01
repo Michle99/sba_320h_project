@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import BookList from '../components/BookList';
-import '../../loadEnvs';
 
 
 interface Book {
@@ -20,7 +19,7 @@ const SearchPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiKey = process.env.REACT_APP_API_KEY;
+        const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
         const response = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`
         );
