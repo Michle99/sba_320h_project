@@ -1,22 +1,13 @@
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import BookList from './components/BookList';
-// import BookDetails from './components/BookDetails';
+// import { useState } from 'react'
+import './App.css'
 
+function App() {
 
-// const App: React.FC = () => {
-//   const searchTerm = 'react'; // Set your desired search term
+  return (
+    <h1 className="text-3xl font-bold text-red-500 underline text-center">
+      Hello World!
+    </h1>
+  )
+}
 
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={<BookList searchTerm={searchTerm} />}
-//         />
-//         <Route path="/books/:id" element={<BookDetails />} />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
+export default App
