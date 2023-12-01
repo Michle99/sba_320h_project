@@ -1,12 +1,16 @@
 // BookDetailsPage.tsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import BookDetails from '../components/BookDetails';
 
 interface Book {
+  id: string;
   volumeInfo: {
     title: string;
+    description?: string;
+    authors?: string[];
+    publishedDate?: string;
   };
 }
 
@@ -33,7 +37,14 @@ const BookDetailsPage: React.FC = () => {
 
   return (
     <div>
-      {book ? <BookDetails book={book} /> : <p>Loading...</p>}
+      <Link to="/" className="text-blue-500 hover:underline mb-4 block">
+        Back to Home
+      </Link>
+      {book ? (
+        <BookDetails book={book} />
+      ) : (
+        <p className="text-xl font-bold">Loading...</p>
+      )}
     </div>
   );
 };
