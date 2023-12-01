@@ -19,9 +19,9 @@ const SearchPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+        const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`
+          `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${API_KEY}`
         );
         setBooks(response.data.items || []);
       } catch (error) {
