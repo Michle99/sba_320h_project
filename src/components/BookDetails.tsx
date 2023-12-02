@@ -5,7 +5,7 @@ import { ArrowLeft } from 'react-feather';
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   return (
-    <div className="max-w-2xl mx-auto bg-white p-6 rounded-md shadow-md border border-gray-300">
+    <div className="max-w-2xl mx-auto mt-8 bg-white p-6 rounded-md shadow-md border border-gray-300">
       <Link to="/" className="flex items-center text-blue-500 mb-4 transition-opacity opacity-75 hover:opacity-100">
         <ArrowLeft size={16} className="mr-1" />
         <span>Back to Home</span>

@@ -16,7 +16,7 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
             <img
               src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
               alt={book.volumeInfo.title}
-              className="w-full h-40 object-scale-down object-center mb-2 rounded-t"
+              className="w-full object-scale-down object-center mb-2 rounded-t"
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-2">{book.volumeInfo.title}</h3>
