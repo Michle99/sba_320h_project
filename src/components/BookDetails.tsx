@@ -1,9 +1,6 @@
 import React from 'react';
-import BookDetailsInterface from '../types/BookDetails';
+import { BookDetailsProps } from '../types/types';
 
-interface BookDetailsProps {
-  book: BookDetailsInterface;
-}
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   return (
@@ -17,7 +14,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
       )}
       {book.volumeInfo.imageLinks && (
         <img
-          src={book.volumeInfo.imageLinks.thumbnail}
+          src={book.volumeInfo.imageLinks.thumbnail || book.volumeInfo.imageLinks.smallThumbnail}
           alt={book.volumeInfo.title}
           className="w-full h-40 object-cover mb-4"
         />
@@ -25,6 +22,44 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
       {book.volumeInfo.description && (
         <p className="text-gray-800">{book.volumeInfo.description}</p>
       )}
+      <div className="mt-4">
+        <p className="text-gray-700">
+          <strong>Categories:</strong> {book.volumeInfo.categories?.join(', ')}
+        </p>
+        <p className="text-gray-700">
+          <strong>Page Count:</strong> {book.volumeInfo.pageCount || 'N/A'}
+        </p>
+        <p className="text-gray-700">
+          <strong>Print Type:</strong> {book.volumeInfo.printType || 'N/A'}
+        </p>
+        <p className="text-gray-700">
+          <strong>Language:</strong> {book.volumeInfo.language || 'N/A'}
+        </p>
+        <p className="text-gray-700">
+          <strong>ISBN:</strong>{' '}
+          {book.volumeInfo.industryIdentifiers?.map((identifier) => (
+            <span key={identifier.type}>{identifier.identifier}</span>
+          ))}
+        </p>
+        <p className="text-gray-700">
+          <strong>Preview Link:</strong>{' '}
+          <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">
+            {book.volumeInfo.previewLink}
+          </a>
+        </p>
+        <p className="text-gray-700">
+          <strong>Info Link:</strong>{' '}
+          <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">
+            {book.volumeInfo.infoLink}
+          </a>
+        </p>
+        <p className="text-gray-700">
+          <strong>Canonical Volume Link:</strong>{' '}
+          <a href={book.volumeInfo.canonicalVolumeLink} target="_blank" rel="noopener noreferrer">
+            {book.volumeInfo.canonicalVolumeLink}
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
