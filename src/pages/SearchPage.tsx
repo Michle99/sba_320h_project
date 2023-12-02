@@ -2,15 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import BookList from '../components/BookList';
-
-
-interface Book {
-  id: string;
-  volumeInfo: {
-    title: string;
-  };
-}
+// import BookList from '../components/BookList';
+import Book from '../types/BookType';
+import BookCard from '../components/BookCard';
 
 const SearchPage: React.FC = () => {
   const { searchTerm } = useParams<{ searchTerm: string }>();
@@ -36,8 +30,9 @@ const SearchPage: React.FC = () => {
 
   return (
     <div>
+      {/*** Add a Navbar */}
       <h2 className="text-2xl font-bold mb-4">Search Results for "{searchTerm}"</h2>
-      <BookList books={books} />
+      <BookCard type="list" books={books}/>
     </div>
   );
 };

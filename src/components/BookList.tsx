@@ -25,7 +25,7 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
             />
           )}
           {book.volumeInfo.description && (
-            <p className="text-gray-800">{book.volumeInfo.description.slice(0, 150)}...</p>
+            <p className="text-gray-800">{book.volumeInfo.description.slice(0, 50)}...</p>
           )}
         </div>
       ))}
