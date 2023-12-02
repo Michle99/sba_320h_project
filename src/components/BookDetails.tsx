@@ -14,9 +14,10 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
       )}
       {book.volumeInfo.imageLinks && (
         <img
-          src={book.volumeInfo.imageLinks.thumbnail || book.volumeInfo.imageLinks.smallThumbnail}
+          src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
           alt={book.volumeInfo.title}
-          className="w-full h-40 object-cover mb-4"
+          className="w-full h-40 object-cover object-center mb-4"
+          style={{ objectFit: 'cover'}}
         />
       )}
       {book.volumeInfo.description && (
