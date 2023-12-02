@@ -13,7 +13,7 @@ const SearchPage: React.FC = () => {
       try {
         const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${API_KEY}`
+          `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=39&key=${API_KEY}`
         );
         setBooks(response.data.items || []);
       } catch (error) {
