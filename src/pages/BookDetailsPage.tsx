@@ -3,16 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import BookDetails from '../components/BookDetails';
-
-interface Book {
-  id: string;
-  volumeInfo: {
-    title: string;
-    description?: string;
-    authors?: string[];
-    publishedDate?: string;
-  };
-}
+import { Book } from '../types/types';
 
 const BookDetailsPage: React.FC = () => {
   const { bookId } = useParams<{ bookId: string }>();
@@ -21,8 +12,9 @@ const BookDetailsPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
         const response = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes/${bookId}`
+          `https://www.googleapis.com/books/v1/volumes/${bookId}?key=${apiKey}`
         );
         setBook(response.data);
       } catch (error) {

@@ -18,9 +18,10 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
             )}
             {book.volumeInfo.imageLinks && (
               <img
-                src={book.volumeInfo.imageLinks.thumbnail || book.volumeInfo.imageLinks.smallThumbnail}
+                src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
                 alt={book.volumeInfo.title}
-                className="w-full h-40 object-cover mb-2"
+                className="w-full h-40 object-fill mb-2"
+                style={{ objectFit: 'cover'}}
               />
             )}
           </div>
