@@ -4,7 +4,7 @@ import { BookDetailsProps } from '../types/types';
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   return (
-    <div className="max-w-2xl mx-auto bg-white p-6 rounded-md shadow-md">
+    <div className="max-w-md mx-auto mt-8 bg-white p-4 rounded-md shadow-md border border-gray-300">
       <h2 className="text-2xl font-semibold mb-4">{book.volumeInfo.title}</h2>
       {book.volumeInfo.authors && (
         <p className="text-gray-600 mb-2">By {book.volumeInfo.authors.join(', ')}</p>
