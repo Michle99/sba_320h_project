@@ -7,6 +7,7 @@ import BookCard from '../components/BookCard';
 const SearchPage: React.FC = () => {
   const { searchTerm } = useParams<{ searchTerm: string }>();
   const [books, setBooks] = useState<Book[]>([]);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,11 +27,12 @@ const SearchPage: React.FC = () => {
     }
   }, [searchTerm]);
 
+
   return (
     <div>
       {/*** Add a Navbar */}
       <h2 className="text-2xl font-bold mb-4">Search Results for "{searchTerm}"</h2>
-      <BookCard type="list" books={books}/>
+      <BookCard type="list" books={books} />
     </div>
   );
 };

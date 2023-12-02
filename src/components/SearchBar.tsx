@@ -10,7 +10,7 @@ const SearchBar: React.FC = () => {
     };
   
     return (
-      <div className="flex justify-center mt-8 items-center">
+      <div className="flex justify-center mt-4 mb-4 items-center">
       <input
         type="text"
         value={searchTerm}
