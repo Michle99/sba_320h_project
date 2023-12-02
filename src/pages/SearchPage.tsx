@@ -16,7 +16,11 @@ const SearchPage: React.FC = () => {
         const response = await axios.get(
           `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=39&key=${API_KEY}`
         );
-        setBooks(response.data.items || []);
+        const searchResults = response.data.items || [];
+        setBooks(searchResults);
+
+        // save search results to localStorage
+        localStorage.setItem('searchResults', JSON.stringify(searchResults));
       } catch (error) {
         console.error('Error fetching books:', error);
       }
@@ -30,7 +34,6 @@ const SearchPage: React.FC = () => {
 
   return (
     <div>
-      {/*** Add a Navbar */}
       <h2 className="text-2xl font-bold mb-4">Search Results for "{searchTerm}"</h2>
       <BookCard type="list" books={books} />
     </div>
