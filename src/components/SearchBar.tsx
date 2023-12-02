@@ -10,13 +10,13 @@ const SearchBar: React.FC = () => {
     };
   
     return (
-      <div className="flex items-center">
+      <div className="flex justify-center mt-8 items-center">
       <input
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search books..."
-        className="border border-gray-300 px-2 py-1 mr-2"
+        className="border border-blue-500 px-2 py-1 mr-2"
       />
       <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded-md">
         Search

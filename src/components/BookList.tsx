@@ -12,11 +12,11 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
           key={book.id}
           className="focus:outline-none text-black transition-transform transform hover:scale-105"
         >
-          <div className="bg-white rounded-md overflow-hidden shadow-md border border-gray-300">
+          <div className=" bg-slate-100 rounded-md overflow-hidden shadow-md border border-gray-300">
             <img
-              src={book.volumeInfo.imageLinks?.thumbnail || book.volumeInfo.imageLinks?.smallThumbnail}
+              src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
               alt={book.volumeInfo.title}
-              className="w-full h-32 object-cover object-center mb-2 rounded-t"
+              className="w-full h-32 object-scale-down object-center mb-2 p-4 rounded-sm border border-blue-100"
             />
             <div className="p-2">
               <h3 className="text-sm font-semibold mb-1">{book.volumeInfo.title}</h3>
