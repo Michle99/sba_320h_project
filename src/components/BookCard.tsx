@@ -2,11 +2,12 @@
 import React from 'react';
 import BookList from './BookList';
 import BookDetails from './BookDetails';
-import Book from '../types/BookType';
+import BookListInterface from '../types/BookList';
+import BookDetailsInterface from '../types/BookDetails';
 
 interface BookCardProps {
   type: 'list' | 'details';
-  books: Book[];
+  books: BookListInterface[] | BookDetailsInterface;
 }
 
 const BookCard: React.FC<BookCardProps> = ({ type, books }) => {

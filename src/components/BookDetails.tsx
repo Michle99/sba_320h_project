@@ -1,8 +1,8 @@
 import React from 'react';
-import Book from '../types/BookType';
+import BookDetailsInterface from '../types/BookDetails';
 
 interface BookDetailsProps {
-  book: Book;
+  book: BookDetailsInterface;
 }
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {

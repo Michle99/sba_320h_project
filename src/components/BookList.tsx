@@ -1,8 +1,8 @@
 import React from 'react';
-import Book from '../types/BookType';
+import BookListInterface from '../types/BookList';
 
 interface BookListProps {
-  books: Book[];
+  books: BookListInterface[];
 }
 
 const BookList: React.FC<BookListProps> = ({ books }) => {
@@ -23,9 +23,6 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
               alt={book.volumeInfo.title}
               className="w-full h-40 object-cover mb-2"
             />
-          )}
-          {book.volumeInfo.description && (
-            <p className="text-gray-800">{book.volumeInfo.description.slice(0, 50)}...</p>
           )}
         </div>
       ))}
