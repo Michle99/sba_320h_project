@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { BookDetailsProps } from '../types/types';
 import { ArrowLeft } from 'react-feather';
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
+  const handleBack = () => {
+    // Check if search results are available in localStorage
+    const searchResults = localStorage.getItem('searchResults');
+    
+    if(searchResults) {
+      // if available, go back to the SearchPage
+      window.history.back();
+    } else {
+       // If not, go back to the HomePage
+       window.location.href = '/';
+    }
+  }
   return (
     <div className="max-w-md mx-auto mt-8 bg-white p-4 rounded-md shadow-md border border-gray-300">
-      <Link to="/" className="flex items-center text-blue-500 mb-4 transition-opacity opacity-75 hover:opacity-100">
+      <div onClick={handleBack} className="flex items-center text-blue-500 mb-4 transition-opacity opacity-75 hover:opacity-100">
         <ArrowLeft size={16} className="mr-1" />
         <span>Back to Search</span>
-      </Link>
+      </div>
       <h2 className="text-xl font-semibold mb-2">{book.volumeInfo.title}</h2>
       {book.volumeInfo.authors && (
         <p className="text-gray-600 mb-1">By {book.volumeInfo.authors.join(', ')}</p>
