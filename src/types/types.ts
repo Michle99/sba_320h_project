@@ -1,4 +1,5 @@
-export default interface BookDetailsInterface {
+// types.ts
+export type Book = {
     id: string;
     volumeInfo: {
       title: string;
@@ -21,4 +22,18 @@ export default interface BookDetailsInterface {
       infoLink?: string;
       canonicalVolumeLink?: string;
     };
-}
+};
+  
+export type BookListProps = {
+    books: Book[];
+};
+  
+export type BookDetailsProps = {
+    book: Book;
+};
+  
+export type BookCardProps = {
+    type: 'list' | 'details';
+    books: Book[];
+};
+  

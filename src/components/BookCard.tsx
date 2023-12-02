@@ -5,9 +5,10 @@ import BookDetails from './BookDetails';
 import BookListInterface from '../types/BookList';
 import BookDetailsInterface from '../types/BookDetails';
 
+interface Book extends BookListInterface, BookDetailsInterface {}
 interface BookCardProps {
   type: 'list' | 'details';
-  books: BookListInterface[] | BookDetailsInterface;
+  books: Book[];
 }
 
 const BookCard: React.FC<BookCardProps> = ({ type, books }) => {
