@@ -10,7 +10,7 @@ const SearchForm: React.FC = () => {
     };
   
     return (
-      <div className="mt-8">
+      <div className="flex items-center justify-center mt-8">
         <input
           type="text"
           placeholder="Search books..."
@@ -20,7 +20,7 @@ const SearchForm: React.FC = () => {
         />
         <button
           onClick={handleSearch}
-          className="bg-blue-500 text-white p-2 rounded"
+          className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600 focus:outline-none"
         >
           Search
         </button>
