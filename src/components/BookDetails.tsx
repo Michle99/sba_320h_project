@@ -1,7 +1,7 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { BookDetailsProps } from '../types/types';
 import { ArrowLeft } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   const handleBack = () => {
@@ -18,10 +18,10 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
   }
   return (
     <div className="max-w-md mx-auto mt-8 bg-white p-4 rounded-md shadow-md border border-gray-300">
-      <div onClick={handleBack} className="flex items-center text-blue-500 mb-4 transition-opacity opacity-75 hover:opacity-100">
+      <Link to={''} onClick={handleBack} className="flex items-center text-blue-500 mb-4 transition-opacity opacity-75 hover:opacity-100">
         <ArrowLeft size={16} className="mr-1" />
         <span>Back to Search</span>
-      </div>
+      </Link>
       <h2 className="text-xl font-semibold mb-2">{book.volumeInfo.title}</h2>
       {book.volumeInfo.authors && (
         <p className="text-gray-600 mb-1">By {book.volumeInfo.authors.join(', ')}</p>
