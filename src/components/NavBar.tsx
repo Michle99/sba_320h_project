@@ -4,7 +4,7 @@ import { BookOpen } from 'react-feather';
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="bg-blue-500 p-4">
+    <nav className=" bg-red-900 p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="text-white flex items-center">
           <BookOpen size={24} className="mr-2" />
