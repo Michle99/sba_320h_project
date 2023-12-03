@@ -34,7 +34,7 @@ const SearchPage: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Search Results for "{searchTerm}"</h2>
+      <p className=" text-sm text-left hover:text-pink-500 font-sans ml-4 mt-2 mb-4">Search Results for "{searchTerm}"</p>
       <BookCard type="list" books={books} />
     </div>
   );
