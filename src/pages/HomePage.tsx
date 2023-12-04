@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="text-center mt-8">
+    <div className="text-center mt-20">
       <div>
         <h5 
           className="text-center 
