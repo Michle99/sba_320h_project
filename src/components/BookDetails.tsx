@@ -35,7 +35,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
         className="w-full h-32 object-scale-down object-center mb-2 rounded"
       />
       {book.volumeInfo.description && (
-        <p className="text-gray-800 mb-2">{book.volumeInfo.description.slice(0, 160)}</p>
+        <p className="text-gray-800 mb-2">{book.volumeInfo.description.slice(0, 159)}...</p>
       )}
     </div>
   );
