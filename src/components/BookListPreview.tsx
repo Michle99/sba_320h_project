@@ -1,4 +1,3 @@
-// BookList.tsx
 import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { BookListProps, Book } from '../types/types';
@@ -45,7 +44,7 @@ const BookListPreview: React.FC<BookListProps> = ({ books }) => {
                   <p className="text-xs text-gray-600 mb-1">By {book.volumeInfo.authors.join(', ')}</p>
                 )}
                 {/* navigate to Preview Page */}
-                
+
               </div>
             </div>
           </div>

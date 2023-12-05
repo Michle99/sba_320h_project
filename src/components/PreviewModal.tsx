@@ -1,4 +1,3 @@
-// PreviewModal.tsx
 import React from 'react';
 import { Book } from '../types/types';
 import { X } from 'react-feather';
