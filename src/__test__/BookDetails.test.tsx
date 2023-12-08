@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, MemoryRouter, Route, Routes } from 'react-router-dom';
 import BookDetails from '../components/BookDetails';
 
 describe('BookDetails component', () => {
@@ -30,28 +30,40 @@ describe('BookDetails component', () => {
   });
 
   test('clicking back link triggers handleBack function', () => {
-    // Spy on window.history.back
-    const spy = jest.spyOn(window.history, 'back');
+    // Spy on localStorage.getItem
+    const localStorageSpy = jest.spyOn(window.localStorage.__proto__, 'getItem');
 
-    // Mock the localStorage getItem method
-    jest.spyOn(window.localStorage.__proto__, 'getItem').mockReturnValueOnce(null);
+    // Mock useNavigate
+    const navigateMock = jest.fn();
 
-    // Render the component with Router
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useNavigate: () => navigateMock,
+    }));
+
+    // Render the component with MemoryRouter and Routes
     render(
-      <Router>
-        <BookDetails book={book} />
-      </Router>
+      <MemoryRouter initialEntries={['/details/1']} initialIndex={0}>
+        <Routes>
+          <Route
+            path="/details/:id"
+            element={<BookDetails book={book} />}
+          />
+        </Routes>
+      </MemoryRouter>
     );
+
+    // Mock localStorage.getItem to simulate no search results
+    localStorageSpy.mockReturnValueOnce(null);
 
     // Click the back link
     fireEvent.click(screen.getByText('Back to Search'));
 
     // Check if the handleBack function is called
-    console.log('Number of calls to window.history.back:', spy.mock.calls.length);
-    expect(spy).toHaveBeenCalled();
+    expect(localStorageSpy).toHaveBeenCalledWith('searchResults');
+    expect(navigateMock).toHaveBeenCalledWith(-1);
 
     // Restore the original functions after the test
-    spy.mockRestore();
-    window.localStorage.__proto__.getItem.mockRestore();
+    localStorageSpy.mockRestore();
   });
 });

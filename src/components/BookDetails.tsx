@@ -1,19 +1,21 @@
 import React from 'react';
 import { BookDetailsProps } from '../types/types';
 import { ArrowLeft } from 'react-feather';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
+  const navigate = useNavigate();
+
   const handleBack = () => {
     // Check if search results are available in localStorage
     const searchResults = localStorage.getItem('searchResults');
     
     if(searchResults) {
       // if available, go back to the SearchPage
-      window.history.back();
+      navigate(-1);
     } else {
        // If not, go back to the HomePage
-       window.location.href = '/';
+       navigate('/');
     }
   }
   return (
