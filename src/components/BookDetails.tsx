@@ -17,8 +17,8 @@ const BookDetails: React.FC<BookDetailsProps> = ({ book }) => {
     }
   }
   return (
-    <div className="max-w-md mx-auto mt-8 bg-white p-4 rounded-md shadow-md border border-gray-300">
-      <Link to={''} onClick={handleBack} className="flex items-center text-red-600 hover:text-rose-700 mb-4 transition-opacity opacity-50 hover:opacity-90">
+    <div  className="max-w-md mx-auto mt-8 bg-white p-4 rounded-md shadow-md border border-gray-300">
+      <Link data-testid="book-details" onClick={handleBack} to={''}  className="flex items-center text-red-600 hover:text-rose-700 mb-4 transition-opacity opacity-50 hover:opacity-90">
         <ArrowLeft size={16} className="mr-1" />
         <span>Back to Search</span>
       </Link>

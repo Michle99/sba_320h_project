@@ -33,7 +33,7 @@ export type BookDetailsProps = {
 };
   
 export type BookCardProps = {
-    type: 'list' | 'details';
+    type: 'list' | 'details' | 'unknown';
     books: Book[];
 };
   
