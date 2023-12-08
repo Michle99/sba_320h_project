@@ -2,7 +2,11 @@
   <h1>SBA 320: Google Books Search React Application</h1>
 </div>
 
-[![Google_Books_Search_CI](https://github.com/Michle99/sba_320h_project/actions/workflows/main.yml/badge.svg)](https://github.com/Michle99/sba_320h_project/actions/workflows/main.yml)
+<div align="center">
+  
+  [![Google_Books_Search_CI](https://github.com/Michle99/sba_320h_project/actions/workflows/main.yml/badge.svg)](https://github.com/Michle99/sba_320h_project/actions/workflows/main.yml)
+  
+</div>
 
 ## Overview
 A React application that allows users to search for books using the Google Books API. Users can view a list of search results and click on a book to see more details.
