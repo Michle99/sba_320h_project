@@ -16,7 +16,7 @@ const PreviewModal: React.FC<PreviewModalProps> = ({ isOpen, onClose, book }) =>
     <div data-testid="preview-modal-el" className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
       <div  className="bg-white max-w-2xl p-4 rounded-md overflow-y-auto">
         <div className="flex justify-end">
-          <button className="bg-red-500 text-white px-4 py-2 rounded-md mt-4" onClick={onClose}>
+          <button data-testid="close-button" className="bg-red-500 text-white px-4 py-2 rounded-md mt-4" onClick={onClose}>
             <X size={24}/>
           </button>
         </div>

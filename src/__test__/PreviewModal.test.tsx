@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from "react-router-dom";
 import PreviewModal from "../components/PreviewModal";
 
@@ -81,8 +81,65 @@ describe('PreviewModal component', () => {
 
     });
 
+    test('It should trigger onClose when close button is clicked', () => {
+        // Mock onClose
+        const onCloseMock = jest.fn();
+    
+        // Mock isOpen
+        const isOpenMock = true;
+    
+        render(
+          <Router>
+            <PreviewModal isOpen={isOpenMock} onClose={onCloseMock} book={book} />
+          </Router>
+        );
+    
+        // Click the close button
+        fireEvent.click(screen.getByTestId('close-button'));
+    
+        // Check if onClose is called
+        expect(onCloseMock).toHaveBeenCalled();
+    });
 
+    test('It should render Preview Book Page link correctly', () => {
+        // Mock onClose
+        const onCloseMock = jest.fn();
+    
+        // Mock isOpen
+        const isOpenMock = true;
+    
+        render(
+          <Router>
+            <PreviewModal isOpen={isOpenMock} onClose={onCloseMock} book={book} />
+          </Router>
+        );
+    
+        // Check if Preview Book Page link is rendered with the correct URL
+        const previewLink = screen.getByText('Preview Book Page');
+        expect(previewLink).toBeInTheDocument();
+        expect(previewLink).toHaveAttribute('href', 'https://example.com/preview');
+    });
+    
+    test('It should render "Details" button with correct link', () => {
+        // Mock onClose
+        const onCloseMock = jest.fn();
+      
+        // Mock isOpen
+        const isOpenMock = true;
+      
+        render(
+          <Router>
+            <PreviewModal isOpen={isOpenMock} onClose={onCloseMock} book={book} />
+          </Router>
+        );
+      
+        // Check if "Details" button is rendered with correct link
+        const detailsLinkButton = screen.getByText('Details');
+        
+        // Extract the actual `a` element from the `Link` component
+        const linkElement = detailsLinkButton.closest('a');
 
-
-
+        // Check if the `a` element has the correct href attribute
+        expect(linkElement).toHaveAttribute('href', `/book/${book.id}`);
+    });
 });
