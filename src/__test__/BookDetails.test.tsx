@@ -43,10 +43,10 @@ describe('BookDetails component', () => {
 
     // Render the component with MemoryRouter and Routes
     render(
-      <MemoryRouter initialEntries={['/details/1']} initialIndex={0}>
+      <MemoryRouter initialEntries={['/book/1']} initialIndex={0}>
         <Routes>
           <Route
-            path="/details/:id"
+            path="/book/:bookId"
             element={<BookDetails book={book} />}
           />
         </Routes>
