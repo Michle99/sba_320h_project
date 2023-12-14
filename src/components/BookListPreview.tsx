@@ -3,7 +3,6 @@ import { BookListProps, Book } from '../types/types';
 import PreviewModal from './PreviewModal';
 import SearchBar from './SearchBar';
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const handlePreviewClick = (setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>, book: Book) => {
   setSelectedBook(book);
 };
@@ -12,9 +11,9 @@ export const handlePreviewClick = (setSelectedBook: React.Dispatch<React.SetStat
 const BookListPreview: React.FC<BookListProps> = ({ books }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-  // const handlePreviewClick = (book: Book) => {
-  //   setSelectedBook(book);
-  // };
+  const handlePreviewClick = (book: Book) => {
+    setSelectedBook(book);
+  };
 
   const handleClosePreviewModal = () => {
     setSelectedBook(null);
@@ -33,7 +32,8 @@ const BookListPreview: React.FC<BookListProps> = ({ books }) => {
             {/* Highlight overlay */}
             <div
               className="absolute inset-0 bg-yellow-200 opacity-0 hover:opacity-50 transition-opacity rounded-md cursor-pointer"
-              onClick={() => handlePreviewClick(setSelectedBook, book)}
+              data-testid="preview-modal-card"
+              onClick={() => handlePreviewClick(book)}
             ></div>
 
             <div className=" bg-slate-100 rounded-md overflow-hidden shadow-md border border-gray-300">
@@ -41,7 +41,7 @@ const BookListPreview: React.FC<BookListProps> = ({ books }) => {
                 src={`https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
                 alt={book.volumeInfo.title}
                 className="w-full h-32 object-scale-down object-center mb-2 p-4 rounded-sm border border-blue-100 cursor-pointer"
-                onClick={() => handlePreviewClick(setSelectedBook, book)}
+                onClick={() => handlePreviewClick(book)}
               />
               <div className="p-2">
                 <h3 className="text-sm font-semibold mb-1">{book.volumeInfo.title}</h3>
