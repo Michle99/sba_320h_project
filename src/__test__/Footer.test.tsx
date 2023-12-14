@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Footer from '../../components/Footer';
+import Footer from '../components/Footer';
 
 
 test('renders NavBar component', () => {

@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../components/SearchBar';
 
 // Mock navigate function
 jest.mock('react-router-dom', () => ({
