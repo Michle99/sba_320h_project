@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from "react-router-dom";
-import PreviewModal from "../components/PreviewModal";
+import PreviewModal from "../../components/PreviewModal";
 
 describe('PreviewModal component', () => {
     const book = {

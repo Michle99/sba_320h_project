@@ -3,6 +3,7 @@ import { BookListProps, Book } from '../types/types';
 import PreviewModal from './PreviewModal';
 import SearchBar from './SearchBar';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const handlePreviewClick = (setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>, book: Book) => {
   setSelectedBook(book);
 };
