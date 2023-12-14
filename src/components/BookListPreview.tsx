@@ -3,11 +3,6 @@ import { BookListProps, Book } from '../types/types';
 import PreviewModal from './PreviewModal';
 import SearchBar from './SearchBar';
 
-export const handlePreviewClick = (setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>, book: Book) => {
-  setSelectedBook(book);
-};
-
-
 const BookListPreview: React.FC<BookListProps> = ({ books }) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 

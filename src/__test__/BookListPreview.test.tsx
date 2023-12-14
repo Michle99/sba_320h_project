@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import BookListPreview, { handlePreviewClick } from '../components/BookListPreview';
+import { fireEvent, render, screen } from '@testing-library/react';
+import BookListPreview from '../components/BookListPreview';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('BookListPreview component', () => {
@@ -30,13 +30,18 @@ describe('BookListPreview component', () => {
   });
 
   test('clicking on a book triggers handlePreviewClick function', () => {
-    const setSelectedBook = jest.fn();
-    const book = books[0];
+    render(
+      <Router>
+        <BookListPreview books={books} />
+      </Router>
+    );
 
     // Click on the first book
-    handlePreviewClick(setSelectedBook, book);
+    const bookPreviewOverlay = screen.getByTestId('book-list-preview').querySelector('.bg-yellow-200')!;
+    fireEvent.click(bookPreviewOverlay);
 
-    // Check if the handlePreviewClick function is called
-    expect(setSelectedBook).toHaveBeenCalledWith(book);
+    // Check if the handlePreviewClick function is indirectly called by checking the modal
+    const previewModalElement = screen.getByTestId('preview-modal-card');
+    expect(previewModalElement).toBeInTheDocument();
   });
 });
