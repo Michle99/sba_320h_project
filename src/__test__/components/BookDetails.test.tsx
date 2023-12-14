@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router, MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
-import BookDetails from '../components/BookDetails';
+import BookDetails from '../../components/BookDetails';
 
 /**
  * ensures that the mock is set up before any test cases are run

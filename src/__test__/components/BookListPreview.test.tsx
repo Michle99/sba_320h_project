@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import BookListPreview from '../components/BookListPreview';
+import BookListPreview from '../../components/BookListPreview';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('BookListPreview component', () => {
