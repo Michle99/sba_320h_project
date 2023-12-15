@@ -42,9 +42,7 @@ const SearchPage: React.FC = () => {
           <p className=" text-sm text-left hover:text-pink-500 font-sans ml-4 mt-2 mb-4">Search Results for "{searchTerm}"</p>
           <BookCard type="list" books={books} />
         </>
-      ):(
-        <p data-testid="loading" className="text-xl font-bold">Loading...</p>
-      )}
+      ):null}
     </div>
   );
 };
