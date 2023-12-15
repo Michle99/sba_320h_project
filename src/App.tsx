@@ -1,4 +1,3 @@
-// App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -14,9 +13,9 @@ const App: React.FC = () => {
         <NavBar />
         <div className="flex-1">
           <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/search/:searchTerm" element={<SearchPage />} />
-          <Route path="/book/:bookId" element={<BookDetailsPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search/:searchTerm" element={<SearchPage />} />
+            <Route path="/book/:bookId" element={<BookDetailsPage />} />
         </Routes>
         </div>
         <Footer />
