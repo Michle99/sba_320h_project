@@ -15,15 +15,6 @@ describe('SearchPage component tests', () => {
       ],
     };
   
-    beforeEach(() => {
-        jest.useFakeTimers(); // Enable fake timers
-    });
-    
-    afterEach(() => {
-        jest.runOnlyPendingTimers();
-        jest.useRealTimers();
-    });
-
     test('displays search results for a search term', async () => {
       const axiosGetSpy = jest.spyOn(axios, 'get');
       axiosGetSpy.mockResolvedValueOnce({
