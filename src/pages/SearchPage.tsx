@@ -22,8 +22,8 @@ const SearchPage: React.FC = () => {
         // save search results to localStorage
         localStorage.setItem('searchResults', JSON.stringify(searchResults));
       } catch (error) {
-        console.error('Error fetching books:', error);
-        setError('Failed to fetch book details for search term. Please try again.');
+        // console.error('Error fetching books:', error);
+        setError('Failed to fetch book details for search term. Please enter a valid search');
       }
     };
 
@@ -43,7 +43,7 @@ const SearchPage: React.FC = () => {
           <BookCard type="list" books={books} />
         </>
       ):(
-        <p className="text-xl font-bold">Loading...</p>
+        <p data-testid="loading" className="text-xl font-bold">Loading...</p>
       )}
     </div>
   );
