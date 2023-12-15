@@ -74,4 +74,4 @@ A React application that allows users to search for books using the Google Books
 Contributions are welcome! Feel free to open issues and pull requests.
 
 ### License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](https://opensource.org/license/mit/) - see the LICENSE file for details.
