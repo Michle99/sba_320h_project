@@ -18,7 +18,7 @@ const BookDetailsPage: React.FC = () => {
         );
         setBook(response.data);
       } catch (error) {
-        console.error('Error fetching book details:', error);
+        // console.error('Error fetching book details:', error);
         setError('Failed to fetch book details. Please try again.');
       }
     };
